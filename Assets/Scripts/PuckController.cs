@@ -20,11 +20,6 @@ public class PuckController : MonoBehaviour
         Debug.Log("moveDirection: " + moveDirection);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("WALLLLLLLLL");
-        puckSpeed = -puckSpeed;
-    }
 
     // Update is called once per frame
     void Update()
