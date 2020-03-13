@@ -17,6 +17,7 @@ public class PlayerController02 : MonoBehaviour
         //Instantiate(Puck, new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
     }
 
+    //Keeps Player in the Room
     private void LateUpdate()
     {
         //Keep Player within xRange (Left and Right sides)
