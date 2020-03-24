@@ -46,7 +46,7 @@ public class PlayerController02 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Instantiate(Puck,new Vector2(Random.Range(-xRange,xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
+        //Instantiate(Puck,new Vector2(Random.Range(-xRange,xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
 
         //count how many enemies there are in the scene
         GameObject[] puckArray;
