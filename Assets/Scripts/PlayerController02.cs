@@ -8,17 +8,16 @@ public class PlayerController02 : MonoBehaviour
     public float xRange;
     public float yRange;
     public GameObject Puck;
+    public GameObject Blocky;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(Puck, new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
-        //Instantiate(Puck, new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
-        //Instantiate(Puck, new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
-    }
+        Instantiate(Blocky, new Vector2(Random.Range(-xRange, xRange), Random.Range(-yRange, yRange)), Quaternion.identity);
 
-    //Keeps Player in the Room
-    private void LateUpdate()
+
+    }
+    void LateUpdate()
     {
         //Keep Player within xRange (Left and Right sides)
         if (transform.position.x > xRange)
@@ -65,4 +64,5 @@ public class PlayerController02 : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime);
     }
+
 }
