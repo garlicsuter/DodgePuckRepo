@@ -12,7 +12,8 @@ public class PlayerController02 : MonoBehaviour
     public GameObject Blocky;
     //public int Score;
     public GameObject scoreText;
-    
+    public GameObject gameOverText;
+        
     
 
     // Start is called before the first frame update
@@ -58,10 +59,10 @@ public class PlayerController02 : MonoBehaviour
        
 
         //Store the current horizontal input in the float moveHorizontal.
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        print("moveHorizontal value: " + moveHorizontal);
         //Store the current vertical input in the float moveVertical.
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveVertical = Input.GetAxisRaw("Vertical");
 
         //Use the two store floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
@@ -81,6 +82,13 @@ public class PlayerController02 : MonoBehaviour
 
             scoreText.GetComponent<ScoreKeeper>().UpdateScore();
         }
+
+        if (other.gameObject.CompareTag("Puck"))
+        {
+            gameOverText.SetActive(true);
+            Time.timeScale = 0;
+        }
+    
 
 
 
