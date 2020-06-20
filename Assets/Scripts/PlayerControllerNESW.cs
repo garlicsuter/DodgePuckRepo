@@ -10,11 +10,11 @@ public class PlayerControllerNESW : MonoBehaviour
     public float xRange;
     public float yRange;
     private Vector2 spawnLoc = new Vector2(2, 2);
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        //transform.position = spawnLoc;
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -137,7 +137,7 @@ public class PlayerControllerNESW : MonoBehaviour
 
         }
         //FROM B2
-        if (other.gameObject.CompareTag("East") && SceneManager.GetActiveScene().name == "A2")
+        if (other.gameObject.CompareTag("East") && SceneManager.GetActiveScene().name == "B2")
         {
             spawnLoc = new Vector2(-7, 0);
             SceneManager.LoadScene("C2");

@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public GameObject player;
- 
+
+    void Awake()
+    {
+        this.InstantiateController();
+    }
+
+    private void InstantiateController()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if (this != Instance)
+        {
+            Debug.Log("Destroying extra GM");
+            Destroy(this.gameObject);
+        }
+    }
+
     void Start()
     {
-        StartCoroutine(ABC());
+        Debug.Log("Started");
+        Debug.Log("Player has not spawned. I'll make one for you.");
+        Instantiate(player, new Vector2(-4, 4), Quaternion.identity);
     }
-
-    IEnumerator ABC()
-    {
-
-        //returning 0 will make it wait 1 frame
-        yield return 0;
-
-        bool playerExists = (GameObject.Find("player") != null);
-        if (playerExists == false)
-        {
-            Instantiate(player, new Vector2(-4, -4), Quaternion.identity);
-        }
-        
-
-
-    }
-
 }
